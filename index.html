@@ -1,26 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URC Robotics</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URC Robotics | Indian Robotics Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: "Poppins", sans-serif;
+      background-color: #f7f9fb;
+      color: #111;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #001f54, #005eff);
+      color: white;
       text-align: center;
-      padding: 100px;
+      padding: 100px 20px;
     }
-    h1 {
-      color: #222;
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
     }
-    p {
+    header p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+    }
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .tagline {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #003399;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .product {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 320px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 15px 0 10px;
+      color: #002c77;
+    }
+    .product p {
+      padding: 0 15px 20px;
+      font-size: 0.95rem;
       color: #555;
+    }
+    .about {
+      text-align: center;
+      background-color: #eef3ff;
+      border-radius: 12px;
+      padding: 50px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .contact {
+      background-color: #002c77;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      border-top: 5px solid #00c6ff;
+    }
+    .contact a {
+      color: #00c6ff;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #001a40;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to URC Robotics</h1>
-  <p>Innovating Autonomous Systems</p>
+
+  <header>
+    <h1>URC ROBOTICS</h1>
+    <p>An Indian Robotics Platform</p>
+  </header>
+
+  <section class="tagline">
+    <p>We are the <b>first Indian robotics company</b> to develop <b>in-house service robots</b> — made proudly in India.</p>
+  </section>
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      URC Robotics is a pioneering Indian robotics startup focused on designing and building autonomous systems that serve people and industries.
+      Our mission is to make robots accessible, reliable, and useful for everyday applications — from cleaning automation to hospitality.
+      We combine AI, engineering, and creativity to deliver world-class products proudly developed in India.
+    </p>
+  </section>
+
+  <section class="products">
+    <h2>Our Products</h2>
+
+    <div class="products">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1581091012184-7c54c2b95b7f?auto=format&fit=crop&w=800&q=60" alt="Commercial Cleaning Robot">
+        <h3>Commercial Cleaning Robot</h3>
+        <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1627398242454-45b6ba1a86e1?auto=format&fit=crop&w=800&q=60" alt="Food Serving Robot">
+        <h3>Food Serving Robot</h3>
+        <p>Our food-serving robot enhances restaurant service with smooth navigation, intelligent obstacle avoidance, and smart delivery features.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p><b>Phone:</b> <a href="tel:+916005173806">+91 6005173806</a></p>
+    <p><b>Email:</b> <a href="mailto:urcrobotics@gmail.com">urcrobotics@gmail.com</a></p>
+    <p><b>Address:</b> Jammu & Kashmir, Gujarat, India</p>
+    <p>Follow us on <a href="https://github.com/urcrobotics" target="_blank">GitHub</a> and <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+  </section>
+
+  <footer>
+    © 2025 URC Robotics — Innovating the Future of Indian Automation
+  </footer>
+
 </body>
 </html>
