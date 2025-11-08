@@ -1,0 +1,185 @@
+/* =========================
+   Global Styles
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f9fb;
+  color: #111;
+  line-height: 1.7;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* Page fade-in animation */
+body.loaded {
+  opacity: 1;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #001f54, #0066ff);
+  color: white;
+  text-align: center;
+  padding: 120px 20px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.15), transparent 70%);
+}
+
+header h1 {
+  font-size: 3.4rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+}
+
+/* Navbar */
+nav {
+  background: #001f54;
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+  color: #00c6ff;
+}
+
+/* Sections */
+section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #003399;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #00c6ff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* About Section */
+.about {
+  text-align: center;
+  background-color: #eef3ff;
+  border-radius: 15px;
+  padding: 60px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Product Cards */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.product {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 330px;
+  text-align: center;
+  transition: all 0.35s ease;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product:hover img {
+  transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact {
+  background-color: #002c77;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-top: 5px solid #00c6ff;
+}
+
+.contact a {
+  color: #00c6ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact a:hover {
+  color: #ffffff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 0.9rem;
+  background: #001a40;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 { font-size: 2.4rem; }
+  header p { font-size: 1.1rem; }
+  .product { width: 90%; }
+}
