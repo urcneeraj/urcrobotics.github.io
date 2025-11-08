@@ -1,68 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>URC Robotics | Indian Robotics Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Poppins", sans-serif;
-      background-color: #f7f9fb;
+      background-color: #f5f8ff;
       color: #111;
-      line-height: 1.6;
+      line-height: 1.7;
+      scroll-behavior: smooth;
     }
+
+    /* Header */
     header {
-      background: linear-gradient(90deg, #001f54, #005eff);
+      background: linear-gradient(135deg, #001f54, #0047ff);
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      border-radius: 50% / 20%;
     }
     header h1 {
-      font-size: 3.2rem;
-      margin-bottom: 10px;
+      font-size: 3.5rem;
       letter-spacing: 2px;
+      margin-bottom: 10px;
     }
     header p {
-      font-size: 1.3rem;
-      color: #e0e0e0;
+      font-size: 1.2rem;
+      color: #e3e9ff;
     }
+
+    /* Section styling */
     section {
       max-width: 1100px;
-      margin: 60px auto;
+      margin: 80px auto;
       padding: 0 20px;
     }
+
+    /* Tagline */
     .tagline {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #333;
-      margin-bottom: 30px;
+      margin-top: -40px;
     }
-    h2 {
+
+    /* About section */
+    .about {
+      background-color: #eef3ff;
+      border-radius: 20px;
+      padding: 60px 40px;
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #003399;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
     }
-    .products {
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #002c77;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #007bff;
+      margin: 10px auto 0;
+      border-radius: 3px;
+    }
+
+    /* Product cards */
+    .products-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+      margin-top: 30px;
     }
     .product {
       background: white;
       border-radius: 15px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      overflow: hidden;
       width: 320px;
+      overflow: hidden;
       text-align: center;
-      transition: 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      transform: translateY(-7px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
     .product img {
       width: 100%;
@@ -70,38 +118,51 @@
       object-fit: cover;
     }
     .product h3 {
-      margin: 15px 0 10px;
+      margin: 18px 0 10px;
       color: #002c77;
+      font-size: 1.2rem;
     }
     .product p {
-      padding: 0 15px 20px;
+      padding: 0 20px 25px;
       font-size: 0.95rem;
       color: #555;
     }
-    .about {
-      text-align: center;
-      background-color: #eef3ff;
-      border-radius: 12px;
-      padding: 50px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
+
+    /* Contact section */
     .contact {
       background-color: #002c77;
       color: white;
       text-align: center;
-      padding: 50px 20px;
-      border-top: 5px solid #00c6ff;
+      padding: 70px 20px;
+      border-top: 6px solid #00c6ff;
     }
     .contact a {
       color: #00c6ff;
       text-decoration: none;
+      transition: color 0.2s;
     }
+    .contact a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
       background: #001a40;
-      color: #ccc;
+      color: #bbb;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+    }
+
+    /* Scroll fade animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
     }
   </style>
 </head>
@@ -112,11 +173,11 @@
     <p>An Indian Robotics Platform</p>
   </header>
 
-  <section class="tagline">
+  <section class="tagline fade">
     <p>We are the <b>first Indian robotics company</b> to develop <b>in-house service robots</b> — made proudly in India.</p>
   </section>
 
-  <section class="about">
+  <section class="about fade">
     <h2>About Us</h2>
     <p>
       URC Robotics is a pioneering Indian robotics startup focused on designing and building autonomous systems that serve people and industries.
@@ -125,25 +186,23 @@
     </p>
   </section>
 
-  <section class="products">
+  <section class="fade">
     <h2>Our Products</h2>
-
-    <div class="products">
+    <div class="products-grid">
       <div class="product">
-        <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true" alt="Commercial Cleaning Robot">
+        <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true" alt="Commercial Cleaning Robot" />
         <h3>Commercial Cleaning Robot</h3>
         <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
       </div>
-
       <div class="product">
-        <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
+        <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot" />
         <h3>Food Serving Robot</h3>
         <p>Our food-serving robot enhances restaurant service with smooth navigation, intelligent obstacle avoidance, and smart delivery features.</p>
       </div>
     </div>
   </section>
 
-  <section class="contact">
+  <section class="contact fade">
     <h2>Contact Us</h2>
     <p><b>Phone:</b> <a href="tel:+916005173806">+91 6005173806</a></p>
     <p><b>Email:</b> <a href="mailto:urcrobotics@gmail.com">urcrobotics@gmail.com</a></p>
@@ -155,6 +214,17 @@
     © 2025 URC Robotics — Innovating the Future of Indian Automation
   </footer>
 
+  <script>
+    // Simple scroll animation
+    const fadeElems = document.querySelectorAll('.fade');
+    const onScroll = () => {
+      fadeElems.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.style.opacity = 1;
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
 </body>
 </html>
-
