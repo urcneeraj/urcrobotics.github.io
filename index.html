@@ -49,6 +49,35 @@
     .lightbox-close:hover {
       color: #00c6ff;
     }
+
+    /* Hover video effect for product */
+    .video-container {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+
+    .video-container:hover { transform: scale(1.02); }
+
+    .video-container img,
+    .video-container video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.35s ease;
+    }
+
+    .video-container img { z-index: 2; opacity: 1; }
+    .video-container video { z-index: 1; opacity: 0; pointer-events: none; }
+
+    .video-container.playing video { opacity: 1; }
+    .video-container.playing img { opacity: 0; }
   </style>
 </head>
 <body>
@@ -78,12 +107,21 @@
   <section>
     <h2 data-aos="fade-up">Our Products</h2>
     <div class="products">
+      <!-- Cleaning Bot (Video Hover Effect) -->
       <div class="product" data-aos="zoom-in">
-        <a href="#img1"><img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true" alt="Commercial Cleaning Robot"></a>
+        <div class="video-container">
+          <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true"
+               alt="Commercial Cleaning Robot" class="thumbnail">
+          <video class="hover-video" muted playsinline loop preload="metadata">
+            <source src="cleanbot.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
         <h3>Commercial Cleaning Robot</h3>
         <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
       </div>
 
+      <!-- Food Serving Bot (uses popup lightbox) -->
       <div class="product" data-aos="zoom-in" data-aos-delay="100">
         <a href="#img2"><img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot"></a>
         <h3>Food Serving Robot</h3>
@@ -103,12 +141,7 @@
     © 2025 URC Robotics — Innovating the Future of Indian Automation
   </footer>
 
-  <!-- Lightbox Popups -->
-  <div id="img1" class="lightbox">
-    <a href="#" class="lightbox-close">&times;</a>
-    <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true" alt="Commercial Cleaning Robot">
-  </div>
-
+  <!-- Lightbox Popup for Food Serving Bot -->
   <div id="img2" class="lightbox">
     <a href="#" class="lightbox-close">&times;</a>
     <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
@@ -124,6 +157,35 @@
     // Fade-in page transition
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+    });
+
+    // Hover video script
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.video-container').forEach(container => {
+        const video = container.querySelector('.hover-video');
+
+        // Desktop hover: start and stop video
+        container.addEventListener('mouseenter', () => {
+          video.currentTime = 0;
+          video.play();
+          container.classList.add('playing');
+        });
+        container.addEventListener('mouseleave', () => {
+          video.pause();
+          container.classList.remove('playing');
+        });
+
+        // Mobile tap toggle
+        container.addEventListener('click', () => {
+          if (video.paused) {
+            video.play();
+            container.classList.add('playing');
+          } else {
+            video.pause();
+            container.classList.remove('playing');
+          }
+        });
+      });
     });
   </script>
 </body>
