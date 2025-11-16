@@ -1,192 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URC Robotics | Home</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>URC Robotics | Smart Autonomous Cleaning</title>
+  <meta name="description" content="URC Robotics — Autonomous cleaning and service robots built in India. Reduce operating costs & deliver consistent, industrial-grade cleaning." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="URC Robotics — Smart Autonomous Cleaning">
+  <meta property="og:description" content="Autonomous cleaning robots for malls, hospitals and commercial spaces. Cut cleaning costs by up to 30%." />
+  <meta property="og:type" content="website" />
+  <!-- If you have a social image, update the URL below -->
+  <!-- <meta property="og:image" content="https://urctrobotics.com/assets/og-image.jpg" /> -->
+
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    /* Lightbox (Popup) Styling */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.3s ease;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 85%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-
-    .lightbox:target {
-      display: flex;
-      opacity: 1;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 25px;
-      right: 35px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .lightbox-close:hover {
-      color: #00c6ff;
-    }
-
-    /* Hover video effect for product */
-    .video-container {
-      position: relative;
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 16 / 9;
-      cursor: pointer;
-      transition: transform 0.25s ease;
-    }
-
-    .video-container:hover { transform: scale(1.02); }
-
-    .video-container img,
-    .video-container video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.35s ease;
-    }
-
-    .video-container img { z-index: 2; opacity: 1; }
-    .video-container video { z-index: 1; opacity: 0; pointer-events: none; }
-
-    .video-container.playing video { opacity: 1; }
-    .video-container.playing img { opacity: 0; }
-  </style>
+  <meta name="theme-color" content="#021a2b" />
 </head>
 <body>
 
-  <nav>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <h1>URC ROBOTICS</h1>
-    <p>Empowering India Through Robotics Innovation</p>
+  <!-- Responsive NAV -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="URC Robotics home">
+        <strong>URC</strong> Robotics
+      </a>
+
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav id="siteNav" class="site-nav" role="navigation">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section data-aos="fade-up" class="about">
-    <h2>About Us</h2>
-    <p>
-      URC Robotics is a pioneering Indian robotics startup focused on designing and building autonomous systems that serve people and industries.
-      Our mission is to make robots accessible, reliable, and useful for everyday applications — from cleaning automation to hospitality.
-    </p>
-  </section>
+  <!-- Hero -->
+  <main id="main">
+    <section class="hero" data-aos="fade-up">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1>THE FUTURE OF CLEANING IS HERE</h1>
+          <p class="lead">URC® — Smart Autonomous Cleaning. Engineered for commercial performance: malls, airports, hospitals and industrial sites.</p>
 
-  <section>
-    <h2 data-aos="fade-up">Our Products</h2>
-    <div class="products">
-      <!-- Cleaning Bot (Video Hover Effect) -->
-      <div class="product" data-aos="zoom-in">
-        <div class="video-container">
-          <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true"
-               alt="Commercial Cleaning Robot" class="thumbnail">
-          <video class="hover-video" muted playsinline loop preload="metadata">
-            <source src="cleanbot.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
+          <ul class="feature-list">
+            <li>Autonomous Navigation &amp; Mapping</li>
+            <li>Advanced Obstacle Detection</li>
+            <li>High-efficiency Battery System</li>
+          </ul>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="products.html">View Products</a>
+            <a class="btn outline" href="contact.html">Request Demo</a>
+          </div>
+
+          <p class="highlight">Cut Cleaning Costs by up to <strong>30%</strong></p>
         </div>
-        <h3>Commercial Cleaning Robot</h3>
-        <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
+
+        <div class="hero-right" aria-hidden="false">
+          <!-- Poster image or hero illustration -->
+          <picture>
+            <source srcset="assets/hero-2x.webp" type="image/webp" media="(min-width:900px)">
+            <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true"
+                 alt="URC commercial cleaning robot illustration"
+                 class="hero-image" loading="lazy">
+          </picture>
+        </div>
       </div>
+    </section>
 
-      <!-- Food Serving Bot (uses popup lightbox) -->
-      <div class="product" data-aos="zoom-in" data-aos-delay="100">
-        <a href="#img2"><img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot"></a>
-        <h3>Food Serving Robot</h3>
-        <p>Enhance your restaurant experience with smooth navigation, smart obstacle avoidance, and automated food delivery capabilities.</p>
+    <!-- Products block -->
+    <section class="products-section container" data-aos="fade-up">
+      <h2>Our Products</h2>
+      <div class="products-grid">
+        <!-- Cleaning Bot with hover-preview video -->
+        <article class="product-card" data-aos="zoom-in">
+          <div class="media video-container" tabindex="0" aria-label="Commercial Cleaning Robot preview">
+            <!-- Thumbnail fallback image -->
+            <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true"
+                 alt="Commercial Cleaning Robot" class="thumbnail">
+            <!-- Use your hosted MP4 or an mp4 in assets/ -->
+            <video class="hover-video" muted playsinline loop preload="metadata" aria-hidden="true">
+              <source src="cleanbot.mp4" type="video/mp4">
+            </video>
+            <button class="media-play" aria-hidden="true" title="Play preview">▶</button>
+          </div>
+
+          <h3>Commercial Cleaning Robot</h3>
+          <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
+          <p class="small">Features: Mapping, Hybrid Scrub System, Real-time Obstacle Detection</p>
+        </article>
+
+        <!-- Food Serving Bot with lightbox -->
+        <article class="product-card" data-aos="zoom-in" data-aos-delay="100">
+          <a href="#serviceLightbox" class="lightbox-trigger">
+            <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true"
+                 alt="Food Serving Robot" loading="lazy">
+          </a>
+          <h3>Food Serving Robot</h3>
+          <p>Enhance restaurant experience with autonomous delivery, smooth navigation, and safe obstacle avoidance.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" data-aos="fade-up">
-    <h2>Contact Us</h2>
-    <p><b>Phone:</b> <a href="tel:+916005173806">+91 6005173806</a></p>
-    <p><b>Email:</b> <a href="mailto:urcrobotics@gmail.com">urcrobotics@gmail.com</a></p>
-    <p><b>Address:</b> Rajkot, Gujarat, India</p>
-  </section>
+    <!-- Contact / CTA -->
+    <section class="contact-cta" data-aos="fade-up">
+      <div class="container">
+        <h2>Ready to automate your cleaning operations?</h2>
+        <p>Contact our team for a demo and pricing.</p>
+        <a class="btn primary" href="contact.html">Request a Demo</a>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    © 2025 URC Robotics — Innovating the Future of Indian Automation
-  </footer>
-
-  <!-- Lightbox Popup for Food Serving Bot -->
-  <div id="img2" class="lightbox">
-    <a href="#" class="lightbox-close">&times;</a>
-    <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
+  <!-- Lightbox markup -->
+  <div id="serviceLightbox" class="lightbox" aria-hidden="true">
+    <a class="lightbox-close" href="#" aria-label="Close">✕</a>
+    <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot large">
   </div>
 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>URC Robotics</strong>
+        <p>Rajkot, Gujarat, India</p>
+      </div>
+      <div>
+        <p><a href="tel:+916005173806">+91 6005173806</a></p>
+        <p><a href="mailto:urcrobotics@gmail.com">urcrobotics@gmail.com</a></p>
+      </div>
+      <div>
+        <p><a href="https://github.com/urcrobotics" target="_blank" rel="noopener">GitHub</a> • <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="copyright">© 2025 URC Robotics — Innovating the Future of Indian Automation</div>
+  </footer>
+
+  <!-- AOS and small custom scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
+    AOS.init({ duration: 900, once: true });
+
+    // Responsive nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const siteNav = document.getElementById('siteNav');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      siteNav.classList.toggle('open');
     });
 
-    // Fade-in page transition
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-    });
+    // Hover video preview (accessible)
+    document.querySelectorAll('.video-container').forEach(container => {
+      const video = container.querySelector('.hover-video');
+      const playBtn = container.querySelector('.media-play');
 
-    // Hover video script
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.video-container').forEach(container => {
-        const video = container.querySelector('.hover-video');
+      // Mouse interactions
+      container.addEventListener('mouseenter', () => {
+        if (video) { video.currentTime = 0; video.play(); container.classList.add('playing'); }
+      });
+      container.addEventListener('mouseleave', () => {
+        if (video) { video.pause(); container.classList.remove('playing'); }
+      });
 
-        // Desktop hover: start and stop video
-        container.addEventListener('mouseenter', () => {
-          video.currentTime = 0;
-          video.play();
-          container.classList.add('playing');
-        });
-        container.addEventListener('mouseleave', () => {
-          video.pause();
-          container.classList.remove('playing');
-        });
-
-        // Mobile tap toggle
-        container.addEventListener('click', () => {
-          if (video.paused) {
-            video.play();
-            container.classList.add('playing');
-          } else {
-            video.pause();
-            container.classList.remove('playing');
-          }
-        });
+      // Keyboard / click toggle for accessibility (Enter/Space/Click)
+      container.addEventListener('click', () => {
+        if (!video) return;
+        if (video.paused) { video.play(); container.classList.add('playing'); } 
+        else { video.pause(); container.classList.remove('playing'); }
+      });
+      container.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          container.click();
+        }
       });
     });
+
+    // Lightbox functionality (simple)
+    document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lb = document.getElementById('serviceLightbox');
+        lb.style.display = 'flex';
+        lb.setAttribute('aria-hidden', 'false');
+      });
+    });
+    document.querySelectorAll('.lightbox-close').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lb = btn.closest('.lightbox');
+        lb.style.display = 'none';
+        lb.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    // Simple fade-in body class on load (existing)
+    window.addEventListener("load", () => document.body.classList.add("loaded"));
   </script>
 </body>
 </html>
