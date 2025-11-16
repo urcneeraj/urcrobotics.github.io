@@ -17,48 +17,29 @@ body {
   transition: opacity 0.6s ease-in-out;
 }
 
-/* Page fade-in animation */
 body.loaded {
   opacity: 1;
 }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #001f54, #0066ff);
-  color: white;
-  text-align: center;
-  padding: 120px 20px 100px;
-  position: relative;
-  overflow: hidden;
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.15), transparent 70%);
-}
-
-header h1 {
-  font-size: 3.4rem;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
-}
-
-header p {
-  font-size: 1.3rem;
-  color: #e0e0e0;
-}
-
-/* Navbar */
+/* =========================
+   NAVBAR (Updated)
+========================= */
 nav {
-  background: #001f54;
+  background: #ffffff;                  /* white top bar */
   padding: 15px 0;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease;
+  box-shadow: 0 1px 0 rgba(2,6,23,0.04);
+}
+
+nav.scrolled {
+  background: rgba(255,255,255,0.86);   /* transparent on scroll */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 6px 22px rgba(2,6,23,0.06);
 }
 
 nav ul {
@@ -70,17 +51,58 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color: #0b1220 !important;             /* dark text */
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover, nav ul li a.active {
-  color: #00c6ff;
+nav ul li a:hover,
+nav ul li a.active {
+  color: #0066ff !important;             /* accent */
 }
 
-/* Sections */
+/* =========================
+   HEADER with background poster
+========================= */
+header {
+  background: url("https://github.com/urcneeraj/urcrobotics.github.io/blob/main/pt7.jpg?raw=true")
+              no-repeat center center / cover;
+  color: white;
+  text-align: center;
+  padding: 160px 20px 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft overlay */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);   /* improves text readability */
+}
+
+/* Header text */
+header h1 {
+  font-size: 3.4rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+header p {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  z-index: 2;
+  position: relative;
+}
+
+/* =========================
+   SECTIONS
+========================= */
 section {
   max-width: 1200px;
   margin: 60px auto;
@@ -105,7 +127,7 @@ h2::after {
   border-radius: 2px;
 }
 
-/* About Section */
+/* About */
 .about {
   text-align: center;
   background-color: #eef3ff;
@@ -114,7 +136,9 @@ h2::after {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Product Cards */
+/* =========================
+   PRODUCTS
+========================= */
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -149,7 +173,9 @@ h2::after {
   transform: scale(1.05);
 }
 
-/* Contact Section */
+/* =========================
+   CONTACT SECTION
+========================= */
 .contact {
   background-color: #002c77;
   color: white;
@@ -168,7 +194,9 @@ h2::after {
   color: #ffffff;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 25px;
