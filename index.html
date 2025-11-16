@@ -4,53 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>URC Robotics | Home</title>
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
-    /* Lightbox (Popup) Styling */
+    /* ---------- FIXED LIGHTBOX CSS (no more image at bottom) ---------- */
     .lightbox {
-      display: none;
+      display: none !important;
       position: fixed;
       z-index: 9999;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.85);
       justify-content: center;
       align-items: center;
-      transition: opacity 0.3s ease;
+    }
+
+    .lightbox:target {
+      display: flex !important;
     }
 
     .lightbox img {
       max-width: 90%;
       max-height: 85%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-
-    .lightbox:target {
-      display: flex;
-      opacity: 1;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
     .lightbox-close {
       position: absolute;
-      top: 25px;
-      right: 35px;
+      top: 20px;
+      right: 30px;
       font-size: 2rem;
       color: white;
       cursor: pointer;
       font-weight: bold;
-      transition: 0.3s;
     }
 
-    .lightbox-close:hover {
-      color: #00c6ff;
-    }
-
-    /* Hover video effect for product */
+    /* ---------- HOVER VIDEO ---------- */
     .video-container {
       position: relative;
       width: 100%;
@@ -80,8 +75,10 @@
     .video-container.playing img { opacity: 0; }
   </style>
 </head>
+
 <body>
 
+  <!-- NAVBAR -->
   <nav>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
@@ -91,11 +88,13 @@
     </ul>
   </nav>
 
+  <!-- HEADER WITH POSTER BACKGROUND -->
   <header>
     <h1>URC ROBOTICS</h1>
     <p>Empowering India Through Robotics Innovation</p>
   </header>
 
+  <!-- ABOUT -->
   <section data-aos="fade-up" class="about">
     <h2>About Us</h2>
     <p>
@@ -104,32 +103,37 @@
     </p>
   </section>
 
+  <!-- PRODUCTS -->
   <section>
     <h2 data-aos="fade-up">Our Products</h2>
+
     <div class="products">
-      <!-- Cleaning Bot (Video Hover Effect) -->
+
+      <!-- Cleaning Robot -->
       <div class="product" data-aos="zoom-in">
         <div class="video-container">
-          <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true"
-               alt="Commercial Cleaning Robot" class="thumbnail">
+          <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true" alt="Commercial Cleaning Robot">
           <video class="hover-video" muted playsinline loop preload="metadata">
             <source src="cleanbot.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
           </video>
         </div>
         <h3>Commercial Cleaning Robot</h3>
         <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
       </div>
 
-      <!-- Food Serving Bot (uses popup lightbox) -->
+      <!-- Food Serving Robot -->
       <div class="product" data-aos="zoom-in" data-aos-delay="100">
-        <a href="#img2"><img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot"></a>
+        <a href="#img2">
+          <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
+        </a>
         <h3>Food Serving Robot</h3>
         <p>Enhance your restaurant experience with smooth navigation, smart obstacle avoidance, and automated food delivery capabilities.</p>
       </div>
+
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="contact" data-aos="fade-up">
     <h2>Contact Us</h2>
     <p><b>Phone:</b> <a href="tel:+916005173806">+91 6005173806</a></p>
@@ -141,20 +145,18 @@
     © 2025 URC Robotics — Innovating the Future of Indian Automation
   </footer>
 
-  <!-- Lightbox Popup for Food Serving Bot -->
+  <!-- LIGHTBOX POPUP (HIDDEN BY DEFAULT NOW) -->
   <div id="img2" class="lightbox">
     <a href="#" class="lightbox-close">&times;</a>
     <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
   </div>
 
+  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init({ duration: 1000, once: true });
 
-    // Fade-in page transition
+    // Fade-in effect
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
     });
@@ -164,7 +166,6 @@
       document.querySelectorAll('.video-container').forEach(container => {
         const video = container.querySelector('.hover-video');
 
-        // Desktop hover: start and stop video
         container.addEventListener('mouseenter', () => {
           video.currentTime = 0;
           video.play();
@@ -175,7 +176,6 @@
           container.classList.remove('playing');
         });
 
-        // Mobile tap toggle
         container.addEventListener('click', () => {
           if (video.paused) {
             video.play();
@@ -187,6 +187,30 @@
         });
       });
     });
+
+    // Remove hash when closing the popup
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.lightbox-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          history.replaceState(null, null, window.location.pathname);
+        });
+      });
+    });
+
+    // Navbar scroll effect
+    (function () {
+      const nav = document.querySelector('nav');
+      const applyClass = () => {
+        if (window.scrollY > 20)
+          nav.classList.add('scrolled');
+        else
+          nav.classList.remove('scrolled');
+      };
+      window.addEventListener('load', applyClass);
+      window.addEventListener('scroll', applyClass);
+    })();
   </script>
+
 </body>
 </html>
