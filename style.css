@@ -25,7 +25,7 @@ body.loaded {
    NAVBAR (Updated)
 ========================= */
 nav {
-  background: #ffffff;                  /* white top bar */
+  background: #ffffff;
   padding: 15px 0;
   text-align: center;
   position: sticky;
@@ -36,7 +36,7 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(255,255,255,0.86);   /* transparent on scroll */
+  background: rgba(255,255,255,0.86);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 6px 22px rgba(2,6,23,0.06);
@@ -51,7 +51,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: #0b1220 !important;             /* dark text */
+  color: #0b1220 !important;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -59,7 +59,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
-  color: #0066ff !important;             /* accent */
+  color: #0066ff !important;
 }
 
 /* =========================
@@ -75,16 +75,14 @@ header {
   overflow: hidden;
 }
 
-/* Soft overlay */
 header::after {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.45);   /* improves text readability */
+  background: rgba(0,0,0,0.45);
 }
 
-/* Header text */
 header h1 {
   font-size: 3.4rem;
   margin-bottom: 12px;
@@ -192,6 +190,15 @@ h2::after {
 
 .contact a:hover {
   color: #ffffff;
+}
+
+/* ⭐ MAKE CONTACT US HEADING WHITE ⭐ */
+.contact h2 {
+  color: #ffffff !important;
+}
+
+.contact h2::after {
+  background: #ffffff !important;
 }
 
 /* =========================
