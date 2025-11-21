@@ -78,23 +78,26 @@
 
 <body>
 
-  <!-- NAVBAR -->
   <nav>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/logo3.jpg?raw=true" alt="URC Robotics Logo">
+      </a>
+
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- HEADER WITH POSTER BACKGROUND -->
   <header>
     <h1>URC ROBOTICS</h1>
     <p>Empowering India Through Robotics Innovation</p>
   </header>
 
-  <!-- ABOUT -->
   <section data-aos="fade-up" class="about">
     <h2>About Us</h2>
     <p>
@@ -103,13 +106,11 @@
     </p>
   </section>
 
-  <!-- PRODUCTS -->
   <section>
     <h2 data-aos="fade-up">Our Products</h2>
 
     <div class="products">
 
-      <!-- Cleaning Robot -->
       <div class="product" data-aos="zoom-in">
         <div class="video-container">
           <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/bot_design.JPG?raw=true" alt="Commercial Cleaning Robot">
@@ -121,7 +122,6 @@
         <p>Fully autonomous cleaning solution designed for malls, hospitals, and offices — ensuring efficiency and hygiene with AI precision.</p>
       </div>
 
-      <!-- Food Serving Robot -->
       <div class="product" data-aos="zoom-in" data-aos-delay="100">
         <a href="#img2">
           <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
@@ -133,7 +133,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact" data-aos="fade-up">
     <h2>Contact Us</h2>
     <p><b>Phone:</b> <a href="tel:+916005173806">+91 6005173806</a></p>
@@ -145,13 +144,11 @@
     © 2025 URC Robotics — Innovating the Future of Indian Automation
   </footer>
 
-  <!-- LIGHTBOX POPUP (HIDDEN BY DEFAULT NOW) -->
   <div id="img2" class="lightbox">
     <a href="#" class="lightbox-close">&times;</a>
     <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
   </div>
 
-  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
