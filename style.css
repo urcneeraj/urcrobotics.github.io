@@ -1,258 +1,239 @@
 /* =========================
    Global Styles
 ========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+* { box-sizing: border-box; margin:0; padding:0; scroll-behavior:smooth; }
+:root{
+  --primary:#0066ff;
+  --accent:#00c6ff;
+  --nav-bg:#ffffff;
+  --muted:#6b7280;
+  --card-shadow: 0 8px 30px rgba(2,6,23,0.04);
+  --glass: rgba(255,255,255,0.72);
 }
-
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f7f9fb;
-  color: #111;
-  line-height: 1.7;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
+  background:#f7f9fb;
+  color:#111;
+  line-height:1.6;
+  opacity:0;
+  transition:opacity .45s ease;
 }
-
-body.loaded {
-  opacity: 1;
-}
+body.loaded{ opacity:1; }
 
 /* =========================
-   NAVBAR (Updated with Logo Layout)
+   NAVBAR
 ========================= */
 nav {
-  background: #ffffff;
-  padding: 10px 0; /* Reduced top/bottom padding slightly to accommodate logo */
+  background: var(--nav-bg);
+  padding: 10px 0;
   position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: background-color 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease;
+  top:0;
+  z-index:1000;
   box-shadow: 0 1px 0 rgba(2,6,23,0.04);
+  transition: background .2s ease, box-shadow .2s ease, backdrop-filter .2s;
 }
+nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); box-shadow: 0 8px 30px rgba(2,6,23,0.06); }
 
-nav.scrolled {
-  background: rgba(255,255,255,0.86);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: 0 6px 22px rgba(2,6,23,0.06);
+.nav-container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center; /* menu centered while logo pushed left */
+  gap:40px;
 }
+.nav-logo { margin-right:auto; }
+.nav-logo img { height:50px; display:block; border-radius:8px; transition:transform .25s; }
+.nav-logo img:hover { transform:scale(1.03); }
 
-/* The container inside nav that holds logo and ul */
-.nav-container {
-  max-width: 1200px; /* Matches your section max-width */
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  /* CHANGED: Centers logo and menu items */
-  justify-content: center;
-  /* ADDED: Adds space between the logo and the menu links */
-  gap: 40px;
-}
+nav ul { list-style:none; display:flex; gap:28px; align-items:center; margin:0; }
+nav ul li a { color:#0b1220; text-decoration:none; font-weight:600; padding:6px 0; display:inline-block; position:relative; }
+nav ul li a.active, nav ul li a:hover { color:var(--primary); }
 
-/* Logo styles */
-.nav-logo img {
-  height: 50px; /* Adjust height as needed */
-  width: auto;
-  display: block; /* Ensures no extra space below image */
-  transition: transform 0.3s ease;
-}
-
-.nav-logo:hover img {
-   transform: scale(1.05);
-}
-
-/* Navigation items list */
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin: 0; /* Ensure no default margins interfere */
-}
-
-nav ul li a {
-  color: #0b1220 !important;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  position: relative;
-  /* Optional: Adding a slight top padding to align text better with logo center */
-  top: 2px; 
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-  color: #0066ff !important;
-}
+.nav-cta { margin-left:16px; background:var(--primary); color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600; }
+.nav-cta:hover { filter:brightness(.95); }
 
 /* =========================
-   HEADER with background poster
+   HERO (with background image)
+   Restored background image + subtle overlay
 ========================= */
 header {
-  background: url("https://github.com/urcneeraj/urcrobotics.github.io/blob/main/Gemini_Generated_Image_gaxpp0gaxpp0gaxp.png?raw=true")
-              no-repeat center center / cover;
-  color: white;
-  text-align: center;
-  padding: 160px 20px 160px;
-  position: relative;
-  overflow: hidden;
+  background-image: url("https://github.com/urcneeraj/urcrobotics.github.io/blob/main/Gemini_Generated_Image_gaxpp0gaxpp0gaxp.png?raw=true");
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
 }
 
+/* overlay for better contrast */
 header::after {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.45);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,10,30,0.45) 0%, rgba(0,10,30,0.45) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-header h1 {
-  font-size: 3.4rem;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
+.hero-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:30px;
+  align-items:center;
+  padding:20px;
   position: relative;
-  z-index: 2;
+  z-index: 1; /* keep content above overlay */
 }
+.hero-text { flex:1; }
+.hero-text h1 { font-size:2.6rem; letter-spacing:1px; margin-bottom:8px; color: #fff; }
+.subtitle { color: #e6eefb; font-size:1.05rem; margin-bottom:16px; }
+.hero-actions .btn { margin-right:10px; }
 
-header p {
-  font-size: 1.3rem;
-  color: #e0e0e0;
-  z-index: 2;
-  position: relative;
-}
+/* Hero media (optional) */
+.hero-media { width:420px; border-radius:12px; overflow:hidden; box-shadow: var(--card-shadow); }
+.hero-media img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* =========================
+   Buttons
+========================= */
+.btn { display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:600; cursor:pointer; border:1px solid transparent; }
+.btn.primary { background:var(--primary); color:#fff; }
+.btn.ghost { background:transparent; color:#fff; border-color:rgba(255,255,255,0.2); }
 
 /* =========================
    SECTIONS
 ========================= */
-section {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
+.container { max-width:1200px; margin:0 auto; padding:18px 20px; }
+section { margin:50px 0; }
 
-h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  color: #003399;
-  position: relative;
-}
+/* Industry + Stats */
+.industry .lead { color:#222; font-size:1.02rem; margin-bottom:18px; }
+.stats { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-bottom:20px; }
+.stat { flex:1 1 240px; background:linear-gradient(180deg,#fff,#f7fbff); padding:18px; border-radius:12px; text-align:center; box-shadow:var(--card-shadow); }
+.stat h3 { color: #003399; margin-bottom:6px; }
 
-h2::after {
-  content: "";
-  width: 80px;
-  height: 4px;
-  background: #00c6ff;
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
+/* Charts layout */
+.charts { display:flex; gap:18px; margin-top:18px; flex-wrap:wrap; justify-content:center; }
+.chart-card { background:#fff; padding:14px; border-radius:10px; width:420px; box-shadow:var(--card-shadow); }
+.chart-card h4 { margin-bottom:10px; color:#002c77; font-size:1rem; }
 
-/* About */
-.about {
-  text-align: center;
-  background-color: #eef3ff;
-  border-radius: 15px;
-  padding: 60px 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
+/* FEATURES */
+.features { background:#fff; border-radius:12px; padding:20px; box-shadow:var(--card-shadow); }
+.feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:10px; }
+.feature { background:#f8fbff; padding:14px; border-radius:10px; }
+.feature h4 { color:#002c77; margin-bottom:8px; }
+
+/* specs and tables */
+.specs table { width:100%; border-collapse:collapse; }
+.specs td { padding:10px 12px; border-bottom:1px solid #eef2ff; }
+.specs tr:last-child td { border-bottom:none; }
 
 /* =========================
    PRODUCTS
 ========================= */
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-}
+.products { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
+.product { width:320px; background:#fff; border-radius:12px; box-shadow:var(--card-shadow); overflow:hidden; padding-bottom:14px; text-align:center; }
+.product h3 { padding:12px 14px 0; }
+.product p { padding:0 14px 12px 14px; color:var(--muted); }
 
-.product {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 330px;
-  text-align: center;
-  transition: all 0.35s ease;
-}
+/* default product image (for cleaning robot card) */
+.product img.product-img { width:100%; height:220px; object-fit:cover; display:block; border-bottom-left-radius:12px; border-bottom-right-radius:12px; }
 
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
-
-.product img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.product:hover img {
-  transform: scale(1.05);
-}
+/* video container */
+.video-container { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
+.video-container img, .video-container video { width:100%; height:100%; object-fit:cover; display:block; }
 
 /* =========================
-   CONTACT SECTION
+   Service robot image — centered, framed, responsive
 ========================= */
-.contact {
-  background-color: #002c77;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-  border-top: 5px solid #00c6ff;
+.product .service-img {
+  display: block;             /* ensure block layout */
+  margin: 16px auto;          /* center horizontally with breathing room */
+  width: 100%;                /* allow responsive width */
+  max-width: 280px;           /* framed width on larger screens */
+  height: 200px;              /* fixed frame height for uniform cards */
+  object-fit: cover;          /* crop to fill while preserving aspect ratio */
+  object-position: center;    /* center subject inside frame */
+  border-radius: 8px;         /* match card rounding */
+  box-shadow: 0 8px 18px rgba(2,6,23,0.06);
 }
 
-.contact a {
-  color: #00c6ff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact a:hover {
-  color: #ffffff;
-}
-
-/* ⭐ MAKE CONTACT US HEADING WHITE ⭐ */
-.contact h2 {
-  color: #ffffff !important;
-}
-
-.contact h2::after {
-  background: #ffffff !important;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 0.9rem;
-  background: #001a40;
-  color: #ccc;
-}
-
-/* =========================
-   Responsive Media Queries
-========================= */
-@media (max-width: 768px) {
-  /* Stack logo and menu on smaller screens */
-  .nav-container {
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+/* Slightly larger frame on very wide screens */
+@media (min-width: 1200px) {
+  .product .service-img {
+    max-width: 320px;
+    height: 220px;
   }
+}
 
-  header h1 { font-size: 2.4rem; }
-  header p { font-size: 1.1rem; }
-  .product { width: 90%; }
+/* Mobile: use full width and auto height to avoid awkward cropping */
+@media (max-width: 768px) {
+  .product .service-img {
+    max-width: 90%;
+    width: 90%;
+    height: auto;
+    margin: 12px auto;
+  }
+}
+
+/* =========================
+   Testimonials, FAQ, Contact
+========================= */
+.test-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:16px; }
+.test-grid blockquote { background:#fff; padding:16px; border-radius:10px; box-shadow:var(--card-shadow); font-style:italic; color:#333; }
+
+.qa h4 { margin-top:12px; color:#002c77; }
+.qa p { margin-bottom:8px; }
+
+.contact { background:var(--nav-bg); border-radius:12px; padding:24px; box-shadow:var(--card-shadow); color:#fff; background:linear-gradient(180deg,#002c77,#001a40); }
+.contact a { color:var(--accent); }
+
+/* footer */
+footer { margin-top:30px; padding:18px 20px; background:#001a40; color:#d6d6d6; }
+.footer-inner { display:flex; justify-content:space-between; gap:12px; align-items:center; }
+
+/* =========================
+   MODAL (Demo)
+========================= */
+.modal { display:none; position:fixed; inset:0; background:rgba(2,6,23,0.55); z-index:1200; align-items:center; justify-content:center; padding:18px; }
+.modal-content { background:#fff; width:100%; max-width:560px; border-radius:12px; padding:18px; position:relative; box-shadow:var(--card-shadow); }
+.modal-close { position:absolute; right:12px; top:10px; border:none; background:transparent; font-size:22px; cursor:pointer; }
+.modal form { display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+.modal label { font-size:.9rem; color:#333; }
+.modal input, .modal textarea { padding:10px; border-radius:8px; border:1px solid #e6eefb; font-size:0.95rem; }
+.modal-actions { display:flex; gap:10px; margin-top:6px; }
+
+/* =========================
+   Sticky CTA
+========================= */
+.sticky-cta { position:fixed; right:18px; bottom:18px; background:var(--primary); color:#fff; border:none; padding:12px 16px; border-radius:12px; box-shadow: 0 10px 30px rgba(2,6,23,0.2); font-weight:700; cursor:pointer; z-index:1300; }
+
+/* small text helpers */
+.small { font-size:.9rem; color:var(--muted); }
+.mt-20 { margin-top:20px; }
+.muted { color:#8b8f98; }
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 992px){
+  .hero-inner { flex-direction:column-reverse; gap:18px; }
+  .chart-card { width:100%; }
+  .feature-grid { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  .hero-text h1 { font-size:2.2rem; }
+}
+@media (max-width: 768px) {
+  .nav-container { flex-direction:column; gap:10px; align-items:center; padding:10px; }
+  .nav-logo { margin-right:0; }
+  nav ul { gap:12px; }
+  .nav-cta { display:none; }
+  .hero-text h1 { font-size:1.9rem; }
+  .hero-media { display:block; width:100%; }
+  .chart-card { padding:12px; }
+  .feature-grid { grid-template-columns:1fr; }
+  .product { width:90%; }
 }
