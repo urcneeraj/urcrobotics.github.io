@@ -16,7 +16,7 @@
   <nav>
     <div class="nav-container">
       <a href="index.html" class="nav-logo" aria-label="URC Robotics Home">
-        <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/logo3.jpg?raw=true" alt="URC Robotics Logo">
+        <img src="https://raw.githubusercontent.com/urcneeraj/urcrobotics.github.io/main/logo3.jpg" alt="URC Robotics Logo">
       </a>
 
       <ul>
@@ -31,7 +31,7 @@
     </div>
   </nav>
 
-  <header id="home" class="hero-solid">
+  <header id="home" class="hero-solid" style="background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('https://raw.githubusercontent.com/urcneeraj/urcrobotics.github.io/main/urc_clear.png') center/cover no-repeat;">
     <div class="hero-inner">
       <div class="hero-text" data-aos="fade-up">
         <h1>URC ROBOTICS</h1>
@@ -41,8 +41,7 @@
           <a class="btn ghost" href="https://raw.githubusercontent.com/urcneeraj/urcrobotics.github.io/main/v5.pdf" target="_blank" download="URC_Robotics_Brochure.pdf">Download Brochure</a>
         </div>
       </div>
-
-      </div>
+    </div>
   </header>
 
   <section class="industry" id="industry" data-aos="fade-up">
@@ -86,7 +85,6 @@
 
     <script>
       // --- MARKET PROJECTION (2024-2030) ---
-      // Source: Grand View Research (global cleaning robot market projection). See citation in page footnote. 
       const marketCtx = document.getElementById('marketChart').getContext('2d');
       const marketChart = new Chart(marketCtx, {
         type: 'line',
@@ -94,7 +92,6 @@
           labels: ['2024','2025','2026','2027','2028','2029','2030'],
           datasets: [{
             label: 'Cleaning robot market (USD billions)',
-            // Values based on Grand View Research projection trend (CAGR ~23.7%): 2024 ~= 5.98, rising to ~21 by 2030
             data: [5.98, 7.40, 9.15, 11.32, 14.00, 17.32, 21.01],
             tension: 0.35,
             fill: true,
@@ -126,8 +123,6 @@
       });
 
       // --- SECTOR ADOPTION (ESTIMATED SPLIT) ---
-      // Sectors cited across recent market reports as the top commercial adopters:
-      // Retail/Malls, Healthcare, Warehouses/Logistics, Hospitality, Other (est. share). See footnote citations. 
       const sectorCtx = document.getElementById('sectorChart').getContext('2d');
       const sectorChart = new Chart(sectorCtx, {
         type: 'doughnut',
@@ -135,7 +130,6 @@
           labels: ['Retail / Malls','Healthcare','Warehouses / Logistics','Hospitality','Other'],
           datasets: [{
             label: 'Sector share (estimate)',
-            // These percentages are an industry-informed estimate (rounded) based on sector emphasis in market reports.
             data: [30, 25, 20, 15, 10],
             borderWidth: 1
           }]
@@ -234,7 +228,7 @@
       <div class="products">
         <div class="product" data-aos="zoom-in">
           <div class="video-container">
-            <img src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/Version_4_2026-Feb-21_04-23-21PM-000_CustomizedView23273657020.png?raw=true" alt="Commercial Cleaning Robot">
+            <img src="https://raw.githubusercontent.com/urcneeraj/urcrobotics.github.io/main/Version_4_2026-Feb-21_04-23-21PM-000_CustomizedView23273657020.png" alt="Commercial Cleaning Robot">
             <video class="hover-video" muted playsinline loop preload="metadata">
               <source src="cleanbot.mp4" type="video/mp4">
             </video>
@@ -244,7 +238,7 @@
         </div>
 
         <div class="product" data-aos="zoom-in" data-aos-delay="100">
-          <img class="product-img service-img" src="https://github.com/urcneeraj/urcrobotics.github.io/blob/main/service_bot.jpg?raw=true" alt="Food Serving Robot">
+          <img class="product-img service-img" src="https://raw.githubusercontent.com/urcneeraj/urcrobotics.github.io/main/service_bot.jpg" alt="Food Serving Robot">
           <h3>Food Serving Robot</h3>
           <p>Delivery robot for hospitality settings with smooth navigation and tray balancing system.</p>
         </div>
